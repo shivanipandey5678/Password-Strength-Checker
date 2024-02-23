@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/c2403c5c1a.js" crossorigin="anonymous"></script>
+    <title>password checker</title>
+</head>
+<body>
+    <div class="container">
+        <div id="input-box">
+            <input type="password" id="password" placeholder="Enter your password">
+            <button type="submit"><span class="material-symbols-outlined">
+                arrow_circle_right
+                </span> </button>
+            <p id="message">Message is<span id="strength"></span><span id="emoji"></span></p>
+        </div>
+      
+    </div>
+    <script>
+        var pass=document.getElementById("password");
+        var msg=document.getElementById("message");
+        var str=document.getElementById("strength")
+        var emoji=document.getElementById("emoji")
+        pass.addEventListener("input",()=>{
+            if(pass.value.length>0){
+                msg.style.display="block";
+            }
+            else{
+                msg.style.display="none";
+            }
+            if(pass.value.length<5){
+                str.innerHTML=" weak ";
+                pass.style.borderColor="red";
+                msg.style.color="red";
+               
+               
+            }
+            else if(pass.value.length>5 && pass.value.length<8){
+                str.innerHTML=" medium ";
+                pass.style.borderColor="yellow";
+                msg.style.color="yellow";
+                
+            }
+            else if(pass.value.length>=8){
+                str.innerHTML=" strong ";
+                pass.style.borderColor="green";
+                msg.style.color="green";
+               
+            }
+        })
+    </script>
+</body>
+</html>
